@@ -38,7 +38,7 @@ class TwistPubNode(Node):
         # 値はpose_sub_nodeの購読値を対応するクラス変数から取得
         self.get_logger().info("x=%f y=%f theta=%f" %
                                (PoseSubNode.pose.x, PoseSubNode.pose.y, PoseSubNode.pose.theta))
-
+        
         # 並進速度[m/s]を変化させる
         if PoseSubNode.pose.x < 4.00 and PoseSubNode.pose.y < 4.00:
             self.vel.linear.x = 0.00
@@ -49,7 +49,7 @@ class TwistPubNode(Node):
         elif PoseSubNode.pose.x > 6.00 and PoseSubNode.pose.y > 6.00:
             self.vel.linear.x = 0.00
             self.vel.linear.y = -0.25
-        elif PoseSubNode.pose.x > 6.00 and PoseSubNode.pose.y < 6.00:
+        elif PoseSubNode.pose.x > 6.00 and PoseSubNode.pose.y < 4.00:
             self.vel.linear.x = -0.25
             self.vel.linear.y = 0.00
 
