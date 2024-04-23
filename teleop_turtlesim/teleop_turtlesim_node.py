@@ -47,7 +47,7 @@ class TwistPubNode(Node):
         elif PoseSubNode.pose.x > 7 and PoseSubNode.pose.y > 7:
             self.vel.linear.x = 0.00
             self.vel.linear.y = -1.00
-        elif PoseSubNode.pose.x > 8 and PoseSubNode.pose.y < 5:
+        elif PoseSubNode.pose.x > 7 and PoseSubNode.pose.y < 6:
             self.vel.linear.x = -1.00
             self.vel.linear.y = 0.00
 
