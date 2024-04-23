@@ -54,7 +54,7 @@ class TwistPubNode(Node):
             self.vel.linear.y = 0.00
 
         # 回転速度[rad/s]は一定値（90度）
-        self.vel.angular.z = 0
+        self.vel.angular.z = 0.00
         
         # 速度指令値をメッセージとして出版する
         self.publisher.publish(self.vel)
