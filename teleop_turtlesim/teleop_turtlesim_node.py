@@ -29,8 +29,8 @@ class TwistPubNode(Node):
         # Twistメッセージ型のオブジェクトの生成
         self.vel = Twist()
         # 並進速度を変化させるための符号
-        self.vel.linear.x = 1
-        self.vel.linear.y = 1
+        self.vel.linear.x = 1.00
+        self.vel.linear.y = 1.00
 
     # timerの起動間隔で実行されるコールバック関数
     def timer_callback(self):
