@@ -52,6 +52,9 @@ class TwistPubNode(Node):
         elif PoseSubNode.pose.x > 6.00 and PoseSubNode.pose.y < 6.00:
             self.vel.linear.x = -0.25
             self.vel.linear.y = 0.00
+        else:
+            self.vel.linear.x = 0.25
+            self.vel.linear.y = 0.25
 
         # 回転速度[rad/s]は一定値（90度）
         self.vel.angular.z = 0.00
