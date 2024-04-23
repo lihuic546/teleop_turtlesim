@@ -38,16 +38,16 @@ class TwistPubNode(Node):
                                (PoseSubNode.pose.x, PoseSubNode.pose.y, PoseSubNode.pose.theta))
         
         # 並進速度[m/s]を変化させる
-        if PoseSubNode.pose.x < 5.55 and PoseSubNode.pose.y < 5.55:
+        if PoseSubNode.pose.x < 6 and PoseSubNode.pose.y < 6:
             self.vel.linear.x = 0.00
             self.vel.linear.y = 1.00
-        elif PoseSubNode.pose.x < 5.55 and PoseSubNode.pose.y > 7.54:
+        elif PoseSubNode.pose.x < 6 and PoseSubNode.pose.y > 7:
             self.vel.linear.x = 1.00
             self.vel.linear.y = 0.00
-        elif PoseSubNode.pose.x > 7.54 and PoseSubNode.pose.y > 7.54:
+        elif PoseSubNode.pose.x > 7 and PoseSubNode.pose.y > 7:
             self.vel.linear.x = 0.00
             self.vel.linear.y = -1.00
-        elif PoseSubNode.pose.x > 7.54 and PoseSubNode.pose.y < 5.55:
+        elif PoseSubNode.pose.x > 7 and PoseSubNode.pose.y < 5:
             self.vel.linear.x = -1.00
             self.vel.linear.y = 0.00
 
