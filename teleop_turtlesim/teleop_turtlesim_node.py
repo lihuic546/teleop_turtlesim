@@ -29,8 +29,8 @@ class TwistPubNode(Node):
         # Twistメッセージ型のオブジェクトの生成
         self.vel = Twist()
         # 並進速度を変化させるための符号
-        self.vel.linear.x = 0.25
-        self.vel.linear.y = 0.25
+        self.vel.linear.x = 1
+        self.vel.linear.y = 1
 
     # timerの起動間隔で実行されるコールバック関数
     def timer_callback(self):
@@ -52,9 +52,7 @@ class TwistPubNode(Node):
         elif PoseSubNode.pose.x > 6.00 and PoseSubNode.pose.y < 6.00:
             self.vel.linear.x = -0.25
             self.vel.linear.y = 0.00
-        else:
-            self.vel.linear.x = 0.25
-            self.vel.linear.y = 0.25
+
 
         # 回転速度[rad/s]は一定値（90度）
         self.vel.angular.z = 0.00
