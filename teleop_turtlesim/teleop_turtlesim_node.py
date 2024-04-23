@@ -29,8 +29,6 @@ class TwistPubNode(Node):
         # Twistメッセージ型のオブジェクトの生成
         self.vel = Twist()
         # 並進速度を変化させるための符号
-        self.vel.linear.x = 1.00
-        self.vel.linear.y = 1.00
 
     # timerの起動間隔で実行されるコールバック関数
     def timer_callback(self):
@@ -40,17 +38,17 @@ class TwistPubNode(Node):
                                (PoseSubNode.pose.x, PoseSubNode.pose.y, PoseSubNode.pose.theta))
         
         # 並進速度[m/s]を変化させる
-        if PoseSubNode.pose.x < 4.00 and PoseSubNode.pose.y < 4.00:
+        if PoseSubNode.pose.x < 5.544 and PoseSubNode.pose.y < 5.544:
             self.vel.linear.x = 0.00
-            self.vel.linear.y = 0.25
-        elif PoseSubNode.pose.x < 4.00 and PoseSubNode.pose.y > 6.00:
-            self.vel.linear.x = 0.25
+            self.vel.linear.y = 1.00
+        elif PoseSubNode.pose.x < 5.544 and PoseSubNode.pose.y > 7.543:
+            self.vel.linear.x = 1.00
             self.vel.linear.y = 0.00
-        elif PoseSubNode.pose.x > 6.00 and PoseSubNode.pose.y > 6.00:
+        elif PoseSubNode.pose.x > 7.543 and PoseSubNode.pose.y > 7.543:
             self.vel.linear.x = 0.00
-            self.vel.linear.y = -0.25
-        elif PoseSubNode.pose.x > 6.00 and PoseSubNode.pose.y < 4.00:
-            self.vel.linear.x = -0.25
+            self.vel.linear.y = -1.00
+        elif PoseSubNode.pose.x > 7.543 and PoseSubNode.pose.y < 7.543:
+            self.vel.linear.x = -1.00
             self.vel.linear.y = 0.00
 
 
