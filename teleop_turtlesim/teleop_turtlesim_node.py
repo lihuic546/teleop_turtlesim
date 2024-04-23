@@ -39,14 +39,21 @@ class TwistPubNode(Node):
                                (PoseSubNode.pose.x, PoseSubNode.pose.y, PoseSubNode.pose.theta))
 
         # 並進速度[m/s]を変化させる
-        if self.vel.linear.x > 3.00:
-            self.signed = -1
-        elif self.vel.linear.x < -2.00:
-            self.signed = 1
-        self.vel.linear.x += self.signed * 0.50
+        if PoseSubNode.pose.x < 2.00 and PoseSubNode.pose.y < 2.00:
+            self.vel.linear.x = 0
+            self.vel.linear.y = 3
+        elif PoseSubNode.pose.x < 2.00 and PoseSubNode.pose.y > 8.00:
+            self.vel.linear.x = 3
+            self.vel.linear.y = 0
+        elif PoseSubNode.pose.x > 8.00 and PoseSubNode.pose.y > 8.00:
+            self.vel.linear.x = 0
+            self.vel.linear.y = -3
+        elif PoseSubNode.pose.x > 8.00 and PoseSubNode.pose.y < 2.00:
+            self.vel.linear.x = -3
+            self.vel.linear.y = 0
 
         # 回転速度[rad/s]は一定値（90度）
-        self.vel.angular.z = 1.5708
+        self.vel.angular.z = 0
         
         # 速度指令値をメッセージとして出版する
         self.publisher.publish(self.vel)
